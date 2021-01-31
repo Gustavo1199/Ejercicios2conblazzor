@@ -1,0 +1,50 @@
+﻿@page "/Ejercicio5"
+@using System;
+
+
+
+<div class="card card-columns">
+    <div class="card-header">Ver numero en letra</div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" @bind-value="@demo" class="form-control" placeholder="Digita la cedula" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <label>
+            <button type="button" @onclick="resivir" class="btn btn-primary">Convertir</button>
+        </label>
+
+        <label>
+            <button type="button" @onclick="Limpiar" class="btn btn-danger">Limpiar</button>
+        </label>
+    </div>
+
+    <div class="card-footer"> 
+        <p> Su numero es: @ver1 </p>
+    </div>
+</div>
+
+
+    @code {
+
+        decimal demo = 0;
+        decimal ver = 0;
+        string ver1 = "";
+
+        public void resivir()
+        {
+      
+            ver1 = demo.NumeroALetras();
+
+        }
+
+
+        public void Limpiar()
+        {
+            demo = 0;
+            ver1 = "";
+        }
+
+    }
+
+

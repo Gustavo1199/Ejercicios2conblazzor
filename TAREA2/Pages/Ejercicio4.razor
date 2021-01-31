@@ -1,0 +1,80 @@
+﻿@page "/Ejercicio4"
+
+<div class="card card-columns">
+    <div class="card-header">Consultar el Tipo de triangulo</div>
+    <div class="card-body">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" @bind-value="@ladoa" class="form-control" placeholder="Digita lado 1" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" @bind-value="@ladob" class="form-control" placeholder="Digita lado 2" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" @bind-value="@ladoc" class="form-control" placeholder="Digita lado 3" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <label>
+            <button type="button" @onclick="triangulo" class="btn btn-primary">Indentificar</button>
+        </label>
+
+        <label>
+            <button type="button" @onclick="Limpiar" class="btn btn-danger">Limpiar</button>
+        </label>
+    </div>
+    <div class="card-footer">
+        <p>Su triangulo es: @trian </p>
+    </div>
+
+</div>
+
+
+
+@code {
+
+    double ladoa;
+    double ladob;
+    double ladoc;
+    string trian = "";
+
+    void triangulo()
+    {
+
+        if (ladoa == ladob && ladob == ladoc)
+        {
+            trian = "Equilatero";
+        }
+        else
+        {
+            if (ladoa == ladob || ladoa == ladoc || ladob == ladoc)
+                trian = "Isoceles";
+
+            else
+            {
+                if (ladoa != ladob || ladoa != ladoc || ladoc != ladob)
+                {
+                    trian = "Escaleno";
+                }
+            }
+        }
+
+    }
+
+    void Limpiar()
+    {
+        double ladoa    ;
+        double ladob;
+        double ladoc;
+        string trian = "";
+    }
+
+
+
+
+
+}

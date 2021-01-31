@@ -1,0 +1,85 @@
+﻿
+
+@page "/Ejercicio1"
+
+<div class="card card-columns">
+    <div class="card-header">Detallar cada palabra que pida, ejercicio 1 </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="text" @bind-value="@oracion" class="form-control" placeholder="Digita tu texto" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <label>
+            <button type="button" @onclick="Calcular" class="btn btn-primary">Calcular</button>
+        </label>
+
+        <label>
+            <button type="button" @onclick="Limpiar" class="btn btn-danger">Limpiar</button>
+        </label>    
+    </div>
+
+    <div class="card-footer">
+        
+
+        <p>Las vocales que hay son: @cv </p>
+        <p>Las Consonantes que hay son: @cc </p>
+        <p>Las Espacios que hay son: @cs</p>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+@code {
+
+    string oracion = "";
+    int cv = 0;
+    int cc = 0;
+    int cs = 0;
+
+    public void Calcular(){
+
+
+        var vocales = new[] { 'A', 'E', 'I', 'O', 'U' };
+        var conso = new[] { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' };
+        var s = new[] { ' ' };
+
+
+        oracion = oracion.ToUpper();
+
+        foreach (var v in vocales)
+        {
+            cv += oracion.Count(x => x == v);
+        }
+        foreach (var v in conso)
+        {
+            cc += oracion.Count(x => x == v);
+        }
+        foreach (var v in s)
+        {
+            cs += oracion.Count(x => x == v);
+        }
+
+
+
+    }
+
+
+
+    public void Limpiar()
+    {
+        oracion = "";
+        cv = 0;
+        cc = 0;
+        cs = 0;
+    }
+
+
+
+
+}
