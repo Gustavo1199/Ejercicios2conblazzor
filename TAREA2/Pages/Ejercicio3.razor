@@ -10,27 +10,26 @@
             <input type="text" @bind-value="@cedula" class="form-control" placeholder="Digita la cedula" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <label>
-            <button type="button" @onclick="ValidaCedula" class="btn btn-primary">Calcular</button>
+            <button type="button" @onclick="ValidaCedula" class="btn btn-primary">Validar</button>
         </label>
 
         <label>
-            <button type="button" class="btn btn-danger">Limpiar</button>
+            <button type="button" @onclick="Limpiar" class="btn btn-danger">Limpiar</button>
         </label>
     </div>
-    <div class="card-footer">
-        <p>
+    <div class="card-footer">    
             @{
-                if (@errores == "")
+                if (validacion == true)
                 {
-                   <html> <p class="p-3 mb-2 bg-success text-white">La cedula esta correcta </p> </html>
+                   <html> 
+                        <div class="p-3 mb-2 bg-success text-white">La cedula esta correcta </div> 
+                   </html>
                 }
                 else
                 {
                     @errores
                 }
             }
-
-        </p>
     </div>
 </div>
 
@@ -45,12 +44,12 @@
     string cedula = "";
     string errores = "";
     bool validacion = false;
+
     //* Método o función para validar una cédula dominicana*
     public void ValidaCedula()
     {
         //Declaración de variables a nivel de método o función.
-        errores = "";
-        validacion = false;
+
         int verificador = 0;
         int digito = 0;
         int digitoVerificador = 0;
@@ -112,9 +111,19 @@
         {
             errores += "No se pudo validar la cédula";
         }
+    }
+
+    //Este metodo es para limpiar los campos 
+    public void Limpiar()
+    {
+        cedula = "";
+        errores = "";
+        validacion = false;
 
 
     }
+
+
 
 
 

@@ -1,0 +1,70 @@
+﻿@page "/Ejercicio6"
+@using HtmlAgilityPack;
+
+
+<div class="card card-columns">
+    <div class="card-header">Calcular Url</div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input type="url" @bind-value="@link" class="form-control" placeholder="Ponga aqui el Url" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <label>
+            <button type="button" @onclick="VerUrl" class="btn btn-primary">Validar</button>
+        </label>
+
+        <label>
+            <button type="button" @onclick="Limpiar" class="btn btn-danger">Limpiar</button>
+        </label>
+    </div>
+    <div class="card-footer">
+        <p>Cantidad de imagenes: @CantImg </p>
+        <p>Cantidad de Parrafo: @CantP </p>
+        <p>@error</p>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@code {
+
+    string link = "";
+    int CantP = 0;
+    int CantImg = 0;
+    string error = "";
+
+    void VerUrl()
+    {
+
+        try
+        {
+            HtmlWeb web = new HtmlWeb();
+            var doc = web.Load(link);
+            CantP = doc.DocumentNode.Descendants("p").Count();
+            CantImg = doc.DocumentNode.Descendants("img").Count();
+        }
+        catch (Exception x)
+        {
+          
+          error = x.Message;
+           
+        }
+
+
+
+    }
+
+    public void Limpiar()
+    {
+        link = "";
+        CantP = 0;
+        CantImg = 0;
+        error = "";
+    }
+
+}

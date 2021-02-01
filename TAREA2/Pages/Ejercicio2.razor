@@ -11,40 +11,28 @@
             <div class="body">
                 <button @onclick="obtenerDatos" class="btn btn-success"> Cargar </button>
             </div>
-            <div class="card-footer">
-                <p>@nombre </p>
-            </div>
         </div>
     </div>
 </div>
 
+<br />
+<br />
 
 
-<!-- Button trigger modal -->
-<button type="button" @onclick="obtenerDatos" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-</button>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+<div class="text-center" style="" >
+    <div class="card" style="width: 18rem;margin:auto;">
+        <img class="card-img-top" src="@imagen" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@nombre</h5>
+            
         </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@phone</li>
+            <li class="list-group-item">@Direccion</li>
+            <li class="list-group-item">@email</li>
+        </ul>
     </div>
 </div>
-
 
 
 
@@ -52,16 +40,22 @@
 @code {
 
     consumir Conapi = new consumir();
-    string nombre = "", apellido = "";
-    string imagen = "", password = "", phone = "", email = "", Direccion = "";
+    string nombre="",phone="",email="";
+    string imagen="",password="",Direccion="";
 
-    List<Result> datos = new List<Result>();
+    
     public void obtenerDatos()
     {
-        datos = Conapi.traerDato();
+        var datos = Conapi.traerDato();
         foreach (var people in datos)
         {
-            nombre = people.name.first;
+            nombre = people.name.first + " "+ people.name.last;
+            imagen = people.picture.large;
+            phone = people.phone;
+            Direccion = people.location.city+","+people.location.country;
+            email = people.email;
+
+
         }
     }
 

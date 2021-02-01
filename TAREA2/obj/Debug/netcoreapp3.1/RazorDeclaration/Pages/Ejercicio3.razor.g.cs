@@ -105,19 +105,19 @@ using Blazored.Modal;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio3.razor"
+#line 41 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio3.razor"
        
 
     //Declaracion de la Varibles
     string cedula = "";
     string errores = "";
     bool validacion = false;
+
     //* Método o función para validar una cédula dominicana*
     public void ValidaCedula()
     {
         //Declaración de variables a nivel de método o función.
-        errores = "";
-        validacion = false;
+
         int verificador = 0;
         int digito = 0;
         int digitoVerificador = 0;
@@ -179,9 +179,19 @@ using Blazored.Modal;
         {
             errores += "No se pudo validar la cédula";
         }
+    }
+
+    //Este metodo es para limpiar los campos 
+    public void Limpiar()
+    {
+        cedula = "";
+        errores = "";
+        validacion = false;
 
 
     }
+
+
 
 
 

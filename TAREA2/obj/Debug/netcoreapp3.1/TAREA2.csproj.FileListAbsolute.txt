@@ -81,3 +81,8 @@ D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\bin\Debug\netcoreapp3
 D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\bin\Debug\netcoreapp3.1\BlazorStrap.dll
 D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\bin\Debug\netcoreapp3.1\Blazored.Modal.dll
 D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.WebAssembly.dll
+D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Ejercicio6.razor.g.cs
+D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\obj\Debug\netcoreapp3.1\Razor\Pages\Ejercicio6.razor.g.cs
+D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Ejercicio7.razor.g.cs
+D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\obj\Debug\netcoreapp3.1\Razor\Pages\Ejercicio7.razor.g.cs

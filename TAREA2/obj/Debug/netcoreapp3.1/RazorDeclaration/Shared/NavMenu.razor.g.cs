@@ -104,7 +104,7 @@ using Blazored.Modal;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Shared\NavMenu.razor"
+#line 69 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

@@ -96,15 +96,8 @@ using Blazored.Modal;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio2.razor"
-using Blazorise;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Ejercicio2")]
-    public partial class Ejercicio2 : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Ejercicio7")]
+    public partial class Ejercicio7 : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,30 +105,60 @@ using Blazorise;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio2.razor"
-       
-
-    consumir Conapi = new consumir();
-    string nombre="",phone="",email="";
-    string imagen="",password="",Direccion="";
-
-    
-    public void obtenerDatos()
-    {
-        var datos = Conapi.traerDato();
-        foreach (var people in datos)
-        {
-            nombre = people.name.first + " "+ people.name.last;
-            imagen = people.picture.large;
-            phone = people.phone;
-            Direccion = people.location.city+","+people.location.country;
-            email = people.email;
+#line 42 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio7.razor"
+       int nota = 0;
+            string notaentrada = "";
+            int Num1 = 0;
+            int Num2 = 0;
+            int Num3 = 0;
+            string Resultado = "";
 
 
-        }
-    }
+            void ejercicioo7()
+            {
+                try
+                {
+                    nota = int.Parse(notaentrada);
 
 
+                    Random num = new Random();
+                    Num1 = num.Next(0, 35);
+                    Num2 = num.Next(0, 35);
+                    Num3 = num.Next(0, 30);
+
+
+                    while (Num1 + Num2 + Num3 != nota)
+                    {
+                        Num1 = num.Next(1, 35);
+                        Num2 = num.Next(1, 35);
+                        Num3 = num.Next(1, 30);
+                    }
+
+
+                    if (nota >= 90 && nota <= 103)
+                    {
+                        Resultado = "Su calificacion es A";
+                    }
+                    else if (nota >= 80 && nota < 90)
+                    {
+                        Resultado = "Su calificacion es B";
+                    }
+                    else if (nota >= 70 && nota < 80)
+                    {
+                        Resultado = "Su calificacion es C";
+                    }
+                    else if (nota < 70)
+                    {
+                        Resultado = "Reprobado";
+                    }
+
+
+                }
+                catch
+                {
+
+                }
+            } 
 
 #line default
 #line hidden

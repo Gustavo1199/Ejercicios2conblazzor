@@ -97,14 +97,14 @@ using Blazored.Modal;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio2.razor"
-using Blazorise;
+#line 2 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio6.razor"
+using HtmlAgilityPack;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Ejercicio2")]
-    public partial class Ejercicio2 : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Ejercicio6")]
+    public partial class Ejercicio6 : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,29 +112,42 @@ using Blazorise;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio2.razor"
+#line 34 "D:\5 cuatrimestre\Programación III\unidad 2\TAREA2\TAREA2\Pages\Ejercicio6.razor"
        
 
-    consumir Conapi = new consumir();
-    string nombre="",phone="",email="";
-    string imagen="",password="",Direccion="";
+    string link = "";
+    int CantP = 0;
+    int CantImg = 0;
+    string error = "";
 
-    
-    public void obtenerDatos()
+    void VerUrl()
     {
-        var datos = Conapi.traerDato();
-        foreach (var people in datos)
+
+        try
         {
-            nombre = people.name.first + " "+ people.name.last;
-            imagen = people.picture.large;
-            phone = people.phone;
-            Direccion = people.location.city+","+people.location.country;
-            email = people.email;
-
-
+            HtmlWeb web = new HtmlWeb();
+            var doc = web.Load(link);
+            CantP = doc.DocumentNode.Descendants("p").Count();
+            CantImg = doc.DocumentNode.Descendants("img").Count();
         }
+        catch (Exception x)
+        {
+          
+          error = x.Message;
+           
+        }
+
+
+
     }
 
+    public void Limpiar()
+    {
+        link = "";
+        CantP = 0;
+        CantImg = 0;
+        error = "";
+    }
 
 
 #line default
